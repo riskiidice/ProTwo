@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Lists</title>
+  </head>
+  <body>
+    {% if users %}
+    <table>
+      <thead>
+        <th>No.</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        {% for user in users%}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+        {% endfor %}
+      </thead>
+    </table>
+    {% else %}
+    <p>No users found!!</p>
+    {% endif%}
+  </body>
+</html>
